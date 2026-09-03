@@ -1,0 +1,22 @@
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        int n = s.length();
+
+        for (int length = 1; length <= n / 2; length++) {
+            if (n % length == 0) {
+                String substring = s.substring(0, length);
+                StringBuilder result = new StringBuilder();
+
+                for (int i = 0; i < n / length; i++) {
+                    result.append(substring);
+                }
+
+                if (result.toString().equals(s)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+}
